@@ -1,0 +1,309 @@
+
+{% extends "layouts/default.html" %}
+
+{% block title %} Dashboard {% endblock title %}
+
+{% block stylesheets %}
+
+{% endblock stylesheets %}
+
+{% block content %}
+
+    <div class="panel-header bg-primary-gradient">
+      <div class="page-inner py-5">
+        <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
+          <div>
+            <h2 class="text-white pb-2 fw-bold">AgroBean Dashboard</h2>
+            <h5 class="text-white op-7 mb-2">AgroBean Admin Dashboard</h5>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    <div class="page-inner mt--5">
+     
+      <div class="row">
+        <div class="col-md-8">
+          <div class="card">
+            <div class="card-header">
+              <div class="card-head-row">
+                <div class="card-title">User Statistics</div>
+                <div class="card-tools">
+                  <a href="#" class="btn btn-info btn-border btn-round btn-sm mr-2">
+                    <span class="btn-label">
+                      <i class="fa fa-pencil"></i>
+                    </span>
+                    Export
+                  </a>
+                  <a href="#" class="btn btn-info btn-border btn-round btn-sm">
+                    <span class="btn-label">
+                      <i class="fa fa-print"></i>
+                    </span>
+                    Print
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="chart-container" style="min-height: 375px">
+                <canvas id="statisticsChart"></canvas>
+              </div>
+              <div id="myChartLegend"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card card-primary">
+            <div class="card-header">
+              <div class="card-title">Daily Sales</div>
+              <div class="card-category">March 25 - April 02</div>
+            </div>
+            <div class="card-body pb-0">
+              <div class="mb-4 mt-2">
+                <h1>$4,578.58</h1>
+              </div>
+              <div class="pull-in">
+                <canvas id="dailySalesChart"></canvas>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body pb-0">
+              <div class="h1 fw-bold float-right text-warning">+7%</div>
+              <h2 class="mb-2">213</h2>
+              <p class="text-muted">Transactions</p>
+              <div class="pull-in sparkline-fix">
+                <div id="lineChart"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row row-card-no-pd">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header">
+              <div class="card-head-row card-tools-still-right">
+                <h4 class="card-title">Users Geolocation</h4>
+                <div class="card-tools">
+                  <button class="btn btn-icon btn-link btn-primary btn-xs"><span class="fa fa-angle-down"></span></button>
+                  <button class="btn btn-icon btn-link btn-primary btn-xs btn-refresh-card"><span class="fa fa-sync-alt"></span></button>
+                  <button class="btn btn-icon btn-link btn-primary btn-xs"><span class="fa fa-times"></span></button>
+                </div>
+              </div>
+              <p class="card-category">
+              Map of the distribution of users around the Uganda</p>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="table-responsive table-hover table-sales">
+                    <table class="table">
+                      <tbody>
+                        <tr>
+                          <td>
+                            <div class="flag">
+                              <img src="/static/assets/img/flags/id.png" alt="indonesia">
+                            </div>
+                          </td>
+                          <td>Masaka</td>
+                          <td class="text-right">
+                            2.320
+                          </td>
+                          <td class="text-right">
+                            42.18%
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="flag">
+                              <img src="/static/assets/img/flags/us.png" alt="united states">
+                            </div>
+                          </td>
+                          <td>Entebbe</td>
+                          <td class="text-right">
+                            240
+                          </td>
+                          <td class="text-right">
+                            4.36%
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="flag">
+                              <img src="/static/assets/img/flags/au.png" alt="australia">
+                            </div>
+                          </td>
+                          <td>Acholi</td>
+                          <td class="text-right">
+                            119
+                          </td>
+                          <td class="text-right">
+                            2.16%
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="flag">
+                              <img src="/static/assets/img/flags/ru.png" alt="russia">
+                            </div>
+                          </td>
+                          <td>Jinja</td>
+                          <td class="text-right">
+                            1.081
+                          </td>
+                          <td class="text-right">
+                            19.65%
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="flag">
+                              <img src="/static/assets/img/flags/cn.png" alt="china">
+                            </div>
+                          </td>
+                          <td>Kampala</td>
+                          <td class="text-right">
+                            1.100
+                          </td>
+                          <td class="text-right">
+                            20%
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="flag">
+                              <img src="/static/assets/img/flags/br.png" alt="brazil">
+                            </div>
+                          </td>
+                          <td>Kotido</td>
+                          <td class="text-right">
+                            640
+                          </td>
+                          <td class="text-right">
+                            11.63%
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="mapcontainer">
+                    <div id="map-example" class="vmap"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+        
+      </div>
+      <div class="row">
+        
+    </div>
+
+{% endblock content %}
+
+{% block javascripts %}
+
+	<script src="/static/assets/js/demo.js"></script>
+
+	<script>
+		Circles.create({
+			id:'circles-1',
+			radius:45,
+			value:60,
+			maxValue:100,
+			width:7,
+			text: 5,
+			colors:['#f1f1f1', '#FF9E27'],
+			duration:400,
+			wrpClass:'circles-wrp',
+			textClass:'circles-text',
+			styleWrapper:true,
+			styleText:true
+		})
+
+		Circles.create({
+			id:'circles-2',
+			radius:45,
+			value:70,
+			maxValue:100,
+			width:7,
+			text: 36,
+			colors:['#f1f1f1', '#2BB930'],
+			duration:400,
+			wrpClass:'circles-wrp',
+			textClass:'circles-text',
+			styleWrapper:true,
+			styleText:true
+		})
+
+		Circles.create({
+			id:'circles-3',
+			radius:45,
+			value:40,
+			maxValue:100,
+			width:7,
+			text: 12,
+			colors:['#f1f1f1', '#F25961'],
+			duration:400,
+			wrpClass:'circles-wrp',
+			textClass:'circles-text',
+			styleWrapper:true,
+			styleText:true
+		})
+
+		var totalIncomeChart = document.getElementById('totalIncomeChart').getContext('2d');
+
+		var mytotalIncomeChart = new Chart(totalIncomeChart, {
+			type: 'bar',
+			data: {
+				labels: ["S", "M", "T", "W", "T", "F", "S", "S", "M", "T"],
+				datasets : [{
+					label: "Total Income",
+					backgroundColor: '#ff9e27',
+					borderColor: 'rgb(23, 125, 255)',
+					data: [6, 4, 9, 5, 4, 6, 4, 3, 8, 10],
+				}],
+			},
+			options: {
+				responsive: true,
+				maintainAspectRatio: false,
+				legend: {
+					display: false,
+				},
+				scales: {
+					yAxes: [{
+						ticks: {
+							display: false //this will remove only the label
+						},
+						gridLines : {
+							drawBorder: false,
+							display : false
+						}
+					}],
+					xAxes : [ {
+						gridLines : {
+							drawBorder: false,
+							display : false
+						}
+					}]
+				},
+			}
+		});
+
+		$('#lineChart').sparkline([105,103,123,100,95,105,115], {
+			type: 'line',
+			height: '70',
+			width: '100%',
+			lineWidth: '2',
+			lineColor: '#ffa534',
+			fillColor: 'rgba(255, 165, 52, .14)'
+		});
+	</script>
+
+{% endblock javascripts %}
