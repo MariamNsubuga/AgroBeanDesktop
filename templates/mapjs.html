@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock title%}
+{% block content %}
+        <main class="content-wrapper">
+          <div class="mdc-layout-grid">
+            <div class="mdc-layout-grid__inner">
+              <!--<div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop">
+                <div class="mdc-card">
+                  <h6 class="card-title">Line chart</h6>
+                  <canvas id="lineChart"></canvas>
+                </div>
+              </div>-->
+            
+              </div>
+            
+              </div>
+              <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop">
+                <div class="mdc-card">
+                  <h6 class="card-title">Map of Infected Areas</h6>
+                  <iframe class="map", src="/map" width="900" height="600"></iframe>
+                </div>
+              </div>
+              
+              </div>
+            </div>
+          </div>
+        </main>
+{% endblock %}

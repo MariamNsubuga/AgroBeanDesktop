@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock title%}
+{% block content %}
+        <main class="content-wrapper">
+          <div class="mdc-layout-grid">
+            <div class="mdc-layout-grid__inner">
+              <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12">
+                <div class="mdc-card p-0">
+                  <h6 class="card-title card-padding pb-0">Results Collections</h6>
+                  <div class="table-responsive">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th class="text-left">ID(s)</th>
+                          <th>Result</th>
+                          <th>Laction/GPS Point</th>
+                          <th>Date</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      {% for table in tables %}
+                        <tr>
+                          <td class="text-left">{{table[0]}}</td>
+                          <td>{{table[1]}}</td>
+                          <td>{{table[2]}}</td>
+                          <td>{{table[3]}}</td>
+                        </tr>
+                       {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+{% endblock %}
